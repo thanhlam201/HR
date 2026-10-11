@@ -18,7 +18,7 @@ npm run export:html
 npm run test:html
 ```
 
-Script xuất tự mở bản production với **database SQLite tạm chỉ có dữ liệu minh họa**, không dùng database phát triển hoặc tài khoản/CV của người dùng. Script yêu cầu Chromium (`CHROMIUM_PATH` nếu không ở `/usr/bin/chromium`). Kiểm thử HTML phục vụ dưới đường dẫn `/HR/` để kiểm tra đúng cấu trúc GitHub Pages. Sau khi commit bản xuất mới, dùng `git subtree split --prefix=site` và đẩy commit trả về lên nhánh `gh-pages` theo cách push thông thường, không force push.
+Script xuất tự mở bản production với **database SQLite tạm chỉ có dữ liệu minh họa**, không dùng database phát triển hoặc tài khoản/CV của người dùng. Script yêu cầu Chromium (`CHROMIUM_PATH` nếu không ở `/usr/bin/chromium`). Kiểm thử HTML phục vụ dưới đường dẫn `/HR/` để kiểm tra đúng cấu trúc GitHub Pages. Sau khi commit bản xuất mới và đẩy mã nguồn lên `main`, chạy `npm run publish:html` để đẩy cây thư mục `site/` lên `gh-pages`. Script dùng lệnh Git có sẵn, giữ lịch sử nhánh Pages và không force push. Lệnh này xuất bản ra GitHub, chỉ chạy khi bạn muốn phát hành bản HTML đã commit.
 
 Có thể xem bản tĩnh bằng `python -m http.server --directory site 8080`. Các tương tác JavaScript dùng module nên cần HTTP/HTTPS thay vì mở trực tiếp bằng `file://`.
 

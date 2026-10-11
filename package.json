@@ -14,7 +14,8 @@
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "test:e2e": "playwright test",
     "export:html": "npm run build && node scripts/export-html.mjs",
-    "test:html": "node scripts/check-html.mjs"
+    "test:html": "node scripts/check-html.mjs",
+    "publish:html": "node scripts/publish-html.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.8",
