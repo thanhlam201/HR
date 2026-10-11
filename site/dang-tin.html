@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="vi" data-scroll-behavior="smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đăng tin tuyển dụng | Hợp Việc — Bản xem trước HTML</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script type="module" src="assets/site.js"></script>
+  </head>
+  <body data-page="dang-tin.html">
+    <div class="static-notice">
+      <span
+        ><strong>BẢN XEM TRƯỚC HTML</strong> · Dữ liệu minh họa. Đăng nhập, hồ
+        sơ và ứng tuyển cần bản MVP có máy chủ.</span
+      ><a href="https://github.com/thanhlam201/HR">Mã nguồn ↗</a>
+    </div>
+    <div hidden=""><!--$--><!--/$--></div>
+    <a class="skip-link" href="#main">Đến nội dung chính</a>
+    <div class="topline">
+      <span>Mỗi người một thế mạnh. Mỗi công việc một người phù hợp.</span
+      ><a href="nha-tuyen-dung.html"
+        >Dành cho nhà tuyển dụng
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13"
+          height="13"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-arrow-up-right"
+          aria-hidden="true"
+        >
+          <path d="M7 7h10v10"></path>
+          <path d="M7 17 17 7"></path></svg
+      ></a>
+    </div>
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" aria-label="Hợp Việc — Trang chủ" href="index.html"
+          ><span class="brand-mark"><i></i><i></i><i></i><i></i></span>hợp<span
+            >việc</span
+          ><span class="brand-dot">.</span></a
+        >
+        <nav class="nav" aria-label="Điều hướng chính">
+          <a class="" href="index.html">Trang chủ</a
+          ><a class="" href="viec-lam.html">Việc làm</a
+          ><a class="" href="ho-so.html">CV / Hồ sơ</a
+          ><a class="" href="cong-cu.html">Công cụ</a
+          ><a class="" href="do-phu-hop.html"
+            >Đánh giá độ phù hợp<span class="new-tag">Mới</span></a
+          >
+        </nav>
+        <div class="header-actions">
+          <a class="login-link" href="dang-nhap.html">Đăng nhập</a
+          ><a class="btn primary small" href="dang-ky.html">Đăng ký</a
+          ><button
+            class="icon-btn mobile-toggle"
+            aria-label="Mở menu"
+            aria-expanded="false"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu"
+              aria-hidden="true"
+            >
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <!--$-->
+      <section class="page-intro">
+        <div class="container">
+          <div>
+            <span class="eyebrow">TẠO MỘT KẾT NỐI MỚI</span>
+            <h1>Giới thiệu cơ hội của bạn.</h1>
+            <p>Thông tin rõ ràng giúp ứng viên hiểu công việc và đội nhóm.</p>
+          </div>
+        </div>
+      </section>
+      <div class="container page-content narrow">
+        <form class="card form-card">
+          <div class="notice">
+            Đăng tin dưới tên <strong>Lumi Studio</strong>. Thông tin phong thủy
+            không được dùng để lọc hoặc loại ứng viên.
+          </div>
+          <label
+            >Chức danh tuyển dụng<input
+              required=""
+              minlength="5"
+              maxlength="120"
+              placeholder="VD: Frontend Developer"
+              name="title"
+          /></label>
+          <div class="form-grid">
+            <label
+              >Địa điểm<select name="location">
+                <option>Hồ Chí Minh</option>
+                <option>Hà Nội</option>
+                <option>Đà Nẵng</option>
+                <option>Remote</option>
+                <option>Khác</option>
+              </select></label
+            ><label
+              >Lĩnh vực<select name="category">
+                <option>Công nghệ</option>
+                <option>Marketing</option>
+                <option>Thiết kế</option>
+                <option>Nhân sự</option>
+                <option>Kinh doanh</option>
+                <option>Tài chính</option>
+                <option>Vận hành</option>
+                <option>Khác</option>
+              </select></label
+            ><label
+              >Hình thức làm việc<select name="type">
+                <option>Toàn thời gian</option>
+                <option>Bán thời gian</option>
+                <option>Thực tập</option>
+                <option>Freelance</option>
+              </select></label
+            ><label
+              >Hạn ứng tuyển<input
+                required=""
+                min="2026-10-11"
+                type="date"
+                value="2026-11-10"
+                name="expires_at" /></label
+            ><label
+              >Lương từ (triệu VNĐ/tháng)<input
+                min="0"
+                max="1000"
+                step="0.5"
+                required=""
+                placeholder="15"
+                type="number"
+                name="salary_min" /></label
+            ><label
+              >Lương đến (triệu VNĐ/tháng)<input
+                min="0"
+                max="1000"
+                step="0.5"
+                required=""
+                placeholder="25"
+                type="number"
+                name="salary_max"
+            /></label>
+          </div>
+          <span class="field-help"
+            >Nhập 0 ở cả hai ô nếu mức lương thỏa thuận.</span
+          ><label
+            >Mô tả công việc<textarea
+              name="description"
+              rows="5"
+              required=""
+              minlength="30"
+              maxlength="8000"
+              placeholder="Ứng viên sẽ làm gì? Những mục tiêu và trách nhiệm chính…"
+            ></textarea></label
+          ><label
+            >Yêu cầu ứng viên<textarea
+              name="requirements"
+              rows="4"
+              required=""
+              minlength="10"
+              maxlength="8000"
+              placeholder="Kinh nghiệm và những điều thực sự cần thiết…"
+            ></textarea></label
+          ><label
+            >Quyền lợi<textarea
+              name="benefits"
+              rows="4"
+              required=""
+              minlength="10"
+              maxlength="8000"
+              placeholder="Phúc lợi, cơ hội phát triển và môi trường làm việc…"
+            ></textarea></label
+          ><label
+            >Kỹ năng cần thiết (ngăn cách bằng dấu phẩy)<input
+              required=""
+              placeholder="React, TypeScript, CSS"
+              name="skills" /></label
+          ><label
+            >Phong cách làm việc của đội nhóm<select name="work_style">
+              <option value="collaborative">Kết nối &amp; cộng tác</option>
+              <option value="independent">Tự chủ &amp; tập trung</option>
+              <option value="structured">Rõ ràng &amp; có kế hoạch</option>
+              <option value="flexible">Linh hoạt &amp; sáng tạo</option>
+            </select></label
+          ><button class="btn primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-plus"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14"></path>
+              <path d="M12 5v14"></path></svg
+            >Đăng tin tuyển dụng
+          </button>
+        </form>
+      </div>
+      <!--/$-->
+    </main>
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" aria-label="Hợp Việc — Trang chủ" href="index.html"
+            ><span class="brand-mark"><i></i><i></i><i></i><i></i></span
+            >hợp<span>việc</span><span class="brand-dot">.</span></a
+          >
+          <p>Kết nối đúng người.<br />Cùng nhau phát triển.</p>
+          <span class="footer-note">Một khởi đầu mới, hợp với chính bạn.</span>
+        </div>
+        <div>
+          <h4>Dành cho ứng viên</h4>
+          <a href="viec-lam.html">Khám phá việc làm</a
+          ><a href="ho-so.html">CV / Hồ sơ của tôi</a
+          ><a href="do-phu-hop.html">Đánh giá độ phù hợp</a>
+        </div>
+        <div>
+          <h4>Dành cho doanh nghiệp</h4>
+          <a href="nha-tuyen-dung.html">Quản lý tuyển dụng</a
+          ><a href="dang-tin.html">Đăng tin tuyển dụng</a
+          ><a href="dang-ky.html?role=employer">Tạo tài khoản doanh nghiệp</a>
+        </div>
+        <div>
+          <h4>Cùng hiểu mình hơn</h4>
+          <a href="cong-cu.html">Khám phá phong cách làm việc</a
+          ><a href="do-phu-hop.html?tab=astro">Tham khảo phong thủy</a>
+          <p class="small-muted">
+            Kết nối bằng năng lực.<br />Đồng hành bằng sự thấu hiểu.
+          </p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span
+          >©
+          <!-- -->2026<!-- -->
+          Hợp Việc. Một nơi để bắt đầu.</span
+        ><span
+          >Thiết kế cho những kết nối có ý nghĩa
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-heart"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"
+            ></path></svg
+        ></span>
+      </div>
+    </footer>
+    <!--$--><!--/$--><next-route-announcer
+      style="position: absolute"
+    ></next-route-announcer>
+  </body>
+</html>
