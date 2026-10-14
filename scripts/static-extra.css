@@ -1,7 +1,7 @@
 .static-notice {
-  background: #fff8e9;
-  border-bottom: 1px solid #f2e7c8;
-  color: #856a34;
+  background: #f1f6e9;
+  border-bottom: 1px solid #e1e9d6;
+  color: #6e825d;
   padding: 8px 30px;
   font-size: 10px;
   display: flex;
@@ -15,7 +15,7 @@
   letter-spacing: 0.8px;
 }
 .static-notice a {
-  color: #75632d;
+  color: #58744c;
   white-space: nowrap;
   text-decoration: underline;
 }

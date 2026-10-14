@@ -7,6 +7,7 @@ import {
   writeFile,
   mkdir,
   copyFile,
+  cp,
   mkdtemp,
   rm,
 } from "node:fs/promises";
@@ -117,7 +118,13 @@ try {
     },
   });
   await mkdir(path.join(output, "assets/fonts"), { recursive: true });
+  await cp(
+    path.join(root, "public/images"),
+    path.join(output, "assets/images"),
+    { recursive: true },
+  );
   let css = await readFile(path.join(root, "src/app/globals.css"), "utf8");
+  css += "\n" + (await readFile(path.join(root, "src/app/design.css"), "utf8"));
   for (const weight of [400, 500, 600, 700, 800]) {
     const source = await readFile(
       path.join(root, `node_modules/@fontsource/inter/${weight}.css`),
@@ -221,6 +228,10 @@ try {
         script.src = "assets/site.js";
         head.append(script);
         doc.querySelector(".header-actions").outerHTML = headerActions;
+        doc.querySelectorAll('img[src^="/images/"]').forEach((image) => {
+          image.setAttribute("src", "assets" + image.getAttribute("src"));
+          image.removeAttribute("srcset");
+        });
         doc.querySelectorAll("a[href]").forEach((a) => {
           const href = a.getAttribute("href");
           if (!href.startsWith("/") && !href.startsWith(location.origin))
@@ -250,7 +261,7 @@ try {
         const banner = document.createElement("div");
         banner.className = "static-notice";
         banner.innerHTML =
-          '<span><strong>BẢN XEM TRƯỚC HTML</strong> · Dữ liệu minh họa. Đăng nhập, hồ sơ và ứng tuyển cần bản MVP có máy chủ.</span><a href="https://github.com/thanhlam201/HR">Mã nguồn ↗</a>';
+          '<span><strong>BẢN TRẢI NGHIỆM</strong> · Dữ liệu minh họa. Hồ sơ và đơn ứng tuyển chưa được gửi đi.</span><a href="https://github.com/thanhlam201/HR">Mã nguồn ↗</a>';
         doc.querySelector("body").prepend(banner);
         doc.querySelector("body").setAttribute("data-page", file);
         doc.querySelectorAll('input[type="password"]').forEach((input) => {

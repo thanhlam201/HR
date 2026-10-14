@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import {
   ArrowUpRight,
@@ -95,7 +96,9 @@ function Header() {
   return (
     <>
       <div className="topline">
-        <span>Mỗi người một thế mạnh. Mỗi công việc một người phù hợp.</span>
+        <span>
+          <Leaf size={12} /> Một nơi để làm việc. Một nơi để thuộc về.
+        </span>
         <Link href="/nha-tuyen-dung">
           Dành cho nhà tuyển dụng <ArrowUpRight size={13} />
         </Link>
@@ -318,17 +321,33 @@ export function CompanyLogo({
   index?: number;
   large?: boolean;
 }) {
+  const brandIndex =
+    [...company].reduce((sum, letter) => sum + letter.charCodeAt(0), 0) %
+    companyColors.length;
+  const mark =
+    company === "Lumi Studio" ? (
+      <Sparkles />
+    ) : company === "GreenTech" ? (
+      <Leaf />
+    ) : company === "Mây Agency" ? (
+      <Megaphone />
+    ) : company === "Bloom People" ? (
+      <Users />
+    ) : company === "Blue Ocean" ? (
+      <Compass />
+    ) : null;
   return (
     <span
       className={`company-logo ${large ? "large" : ""}`}
-      style={{ background: companyColors[index % companyColors.length] }}
+      style={{ background: companyColors[brandIndex] }}
     >
-      {company
-        .split(" ")
-        .map((v) => v[0])
-        .slice(0, 2)
-        .join("")
-        .toUpperCase()}
+      {mark ||
+        company
+          .split(" ")
+          .map((v) => v[0])
+          .slice(0, 2)
+          .join("")
+          .toUpperCase()}
     </span>
   );
 }
@@ -365,6 +384,7 @@ export function JobCard({
           />
         </button>
       </div>
+      <div className="job-kicker">{job.category}</div>
       <Link className="job-title" href={`/viec-lam/${job.id}`}>
         {job.title}
       </Link>
@@ -396,6 +416,7 @@ export function JobCard({
             className="job-arrow"
             aria-label={`Xem ${job.title}`}
           >
+            <span>Xem chi tiết</span>
             <ArrowUpRight size={18} />
           </Link>
         )}
@@ -437,6 +458,17 @@ function Home() {
               Không chỉ tìm một công việc. Tìm một nơi bạn được là mình, phát
               huy thế mạnh và cùng những người phù hợp tiến xa hơn.
             </p>
+            <div className="hero-cta">
+              <Link href="/viec-lam" className="btn primary">
+                Khám phá cơ hội <ArrowUpRight size={18} />
+              </Link>
+              <Link href="/do-phu-hop" className="hero-fit-link">
+                <span>
+                  <Sparkles size={18} />
+                </span>
+                Tìm sự phù hợp <ArrowRight size={15} />
+              </Link>
+            </div>
             <div className="hero-highlights">
               <span>
                 <CircleCheck size={16} /> Cơ hội đúng năng lực
@@ -450,82 +482,55 @@ function Home() {
             className="hero-visual"
             aria-label="Minh họa kết nối ứng viên và đội nhóm"
           >
-            <div className="visual-orbit" />
-            <div className="float-chip top">
-              <span className="mini-icon">
-                <Leaf size={17} />
-              </span>
-              Mỗi người đều có một nơi phù hợp
-            </div>
-            <div className="profile-preview">
-              <div className="preview-heading">
-                <span className="preview-dots">
-                  <i />
-                  <i />
-                  <i />
-                </span>
-                <span>HỒ SƠ KẾT NỐI</span>
-                <Sparkles size={16} />
-              </div>
-              <div className="person-row">
-                <div className="portrait">
-                  <span>AN</span>
-                  <i className="portrait-status" />
-                </div>
-                <div>
-                  <h3>Minh An</h3>
-                  <p>Product Designer</p>
-                  <span className="person-tag">
-                    Sáng tạo · Cởi mở · Cộng tác
-                  </span>
-                </div>
-              </div>
-              <div className="preview-divider" />
-              <div className="preview-match">
-                <div>
-                  <span>Một đội nhóm, cùng phát triển</span>
-                  <strong>Hợp từ những điều nhỏ nhất.</strong>
-                </div>
-                <div className="overlap-avatars">
-                  <i>LN</i>
-                  <i>TH</i>
-                  <i>MK</i>
-                </div>
-              </div>
-              <div className="fit-tracks">
-                <div>
-                  <span>Kỹ năng & thế mạnh</span>
-                  <i>
-                    <b style={{ width: "86%" }} />
-                  </i>
-                </div>
-                <div>
-                  <span>Phong cách làm việc</span>
-                  <i>
-                    <b style={{ width: "74%" }} />
-                  </i>
-                </div>
-              </div>
-              <div className="preview-footer">
-                <span>
-                  <ShieldCheck size={14} /> Bạn làm chủ hồ sơ của mình
-                </span>
-                <small>Minh họa</small>
+            <div className="visual-halo" aria-hidden="true" />
+            <div className="visual-ring" aria-hidden="true" />
+            <div className="career-photo">
+              <Image
+                src="/images/career-portrait.webp"
+                width={640}
+                height={800}
+                alt="Hình minh họa một người trẻ tự tin bắt đầu hành trình nghề nghiệp"
+                unoptimized
+                loading="eager"
+                fetchPriority="high"
+              />
+              <div className="photo-caption">
+                <span className="live-dot" /> Một khởi đầu, thật là bạn.
               </div>
             </div>
-            <div className="float-card">
-              <span className="float-spark">
-                <Sparkles size={22} />
+            <div className="opportunity-note">
+              <span className="note-icon">
+                <BriefcaseBusiness size={22} />
               </span>
               <div>
-                <strong>Không chỉ là một chiếc CV</strong>
-                <span>Là bạn, cùng những tiềm năng.</span>
+                <span>CƠ HỘI MỚI</span>
+                <strong>Product Designer</strong>
+                <small>
+                  <MapPin size={11} /> Hồ Chí Minh <i>Minh họa</i>
+                </small>
               </div>
-              <Check size={18} />
+              <ArrowUpRight size={18} />
             </div>
-            <div className="floating-star">✳</div>
-            <span className="visual-caption">
-              Công việc tốt bắt đầu từ sự thấu hiểu.
+            <div className="connection-note">
+              <span className="note-spark">
+                <Sparkles size={24} />
+              </span>
+              <span className="eyebrow">BẮT ĐẦU TỪ SỰ THẤU HIỂU</span>
+              <strong>
+                Hợp việc.
+                <br />
+                Hợp cả đội nhóm.
+              </strong>
+              <div className="connection-tags">
+                <span>Kỹ năng</span>
+                <span>Phong cách</span>
+              </div>
+            </div>
+            <span className="visual-daisy" aria-hidden="true">
+              ✳
+            </span>
+            <span className="visual-label">
+              Tìm nơi bạn thuộc về <Heart size={13} />
             </span>
           </div>
         </div>

@@ -12,6 +12,7 @@ const types = {
   ".json": "application/json",
   ".woff2": "font/woff2",
   ".woff": "font/woff",
+  ".webp": "image/webp",
 };
 const server = createServer(async (req, res) => {
   try {
